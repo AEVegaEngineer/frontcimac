@@ -1,0 +1,797 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <title>Tablero</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/dashboard.css" rel="stylesheet">
+    <!-- modals stackeados -->
+    <!--<link href="../assets/css/bootstrap-modal-bs3patch.css" rel="stylesheet">-->
+    
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">CIMAC</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Auditados
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" id="linkPrefOsAudit">Prefactura O.S. Auditados</a>
+              <a class="dropdown-item" href="#" id="linkPrefOsProfAudit">Prefactura O.S. y Prof. Audit.</a>
+              <!--<div class="dropdown-divider"></div>-->
+              <a class="dropdown-item" href="#" id="linkPrefProfAudit">Prefactura Prof. Auditados</a>
+              <a class="dropdown-item" href="#" id="linkPrefServAudit">Prefactura Servicios Auditados</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+
+        <main role="main" class="col-md-9 col-12 col-md-10 offset-md-1  pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Auditoría y Facturación de Turnos</h1>
+            <!-- <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+              </button>
+            </div> -->
+          </div>        
+
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Profesional - Obra Social</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Auditados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pendientes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">DNI Paciente</a>
+            </li>
+            <!--
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            -->
+          </ul>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm" id="tableAuditoria">
+              <thead>
+                <tr>
+                  <th>Estado</th>
+                  <th>Fecha</th>
+                  <th>Paciente</th>
+                  <th>DNI</th>
+                  <th>OS</th>
+                  <th>Profesional</th>
+                  <th>Tipo Prac.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td>elit</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td>Praesent</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr class="table-danger">
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td>ante</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr class="table-danger">
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,011</td>
+                  <td>eget</td>
+                  <td>nulla</td>
+                  <td>Class</td>
+                  <td>aptent</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,012</td>
+                  <td>taciti</td>
+                  <td>sociosqu</td>
+                  <td>ad</td>
+                  <td>litora</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,013</td>
+                  <td>torquent</td>
+                  <td>per</td>
+                  <td>conubia</td>
+                  <td>nostra</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,014</td>
+                  <td>per</td>
+                  <td>inceptos</td>
+                  <td>himenaeos</td>
+                  <td>Curabitur</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,015</td>
+                  <td>sodales</td>
+                  <td>ligula</td>
+                  <td>in</td>
+                  <td>libero</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+
+        </main>
+      </div>
+    </div>
+    <!-- Modal detalles -->    
+
+    <div class="modal fade" id="modalDetalle" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalDetalleLabel">Detalle</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <p><b>OP Afil: </b>NG</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Sigla: </b>DOS</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Nº Carnet: </b>/013</p>
+              </div>
+            </div>
+            <div class="row">              
+              <div class="col-12 col-md-4">
+                <p><b>Cta Liquid: </b>320</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Cod Prof: </b>106</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Imp Tot Practica : </b>34,790,987.00</p>
+              </div>
+            </div>
+            <div class="row">              
+              <div class="col-12 col-md-4">
+                <p><b>Cod. Pract. : </b>42.01.01</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Descrip. Pract. : </b>Consulta Médica en Consultorio</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Imp Practica : </b>34790</p>
+              </div>
+            </div>
+            <div class="row">              
+              <div class="col-12 col-md-4">
+                <p><b>OP Turno : </b>AU</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>EST. LIQ. : </b>LIQ</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Fecha Corte : </b>04/09/2020</p>
+              </div>
+            </div>
+            <div class="row">              
+              <div class="col-12 col-md-4">
+                <p><b>Fecha Cierre : </b>04/09/2020</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><b>Ident Usu : </b>1</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <button class="btn btn-primary" id="btnCtaInternaLiqui">Cuenta Interna Liquidación</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Pref OS Audit -->    
+
+    <div class="modal fade" id="modalPrefOsAudit" tabindex="-1" role="dialog" aria-labelledby="modalPrefOsAuditLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <h5 class="modal-title" id="modalPrefOsAuditLabel">Prefacturación - Control Obra Social</h5>
+              </div>
+              <div class="col-12 col-md-4">
+                <b><h3 class="modal-title">CIMAC S.A.</h3></b>
+              </div>
+            </div>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <h5 class="modal-title" id="modalPrefOsAuditLabel">AUDITADOS</h5>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="float-right"><p class="modal-title">Fecha: 04/09/2020</p></div>
+              </div>
+            </div>          
+            <div class="table-responsive">
+              <table class="table table-striped table-sm" id="tableAuditoria">
+                <thead>
+                  <tr>
+                    <th>Num Carnet</th>
+                    <th>Profesional</th>
+                    <th>Fecha</th>
+                    <th>Nom Paciente</th>
+                    <th>DNI</th>
+                    <th>Cta. Liq.</th>
+                    <th>Nro. Orden</th>
+                    <th>Cod. Práctica</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>112</td>
+                    <td>GATICA, ROXANA EMILSE</td>
+                    <td>02/01/2018</td>
+                    <td>CARRIZO, GABRIEL</td>
+                    <td>32034040</td>
+                    <td>447</td>
+                    <td>447</td>
+                    <td>17.01.01</td>
+                    <td>220,00</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>Total Profesional</b></td>
+                    <td><b>220,00</b></td>
+                  </tr>
+
+                  <tr>
+                    <td>138</td>
+                    <td>MOLINA, MAURICIO</td>
+                    <td>03/01/2018</td>
+                    <td>FLORES, DARIO</td>
+                    <td>34915800</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>42.01.01</td>
+                    <td>286,00</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>Total Profesional</b></td>
+                    <td><b>286,00</b></td>
+                  </tr>
+
+                  <tr>
+                    <td>94</td>
+                    <td>CASTRO, MARIA</td>
+                    <td>02/01/2018</td>
+                    <td>CARRIZO, IVANA</td>
+                    <td>33095247</td>
+                    <td>380</td>
+                    <td>380</td>
+                    <td>42.01.01</td>
+                    <td>286,00</td>
+                  </tr>
+                  <tr>
+                    <td>94</td>
+                    <td>CASTRO, MARIA</td>
+                    <td>02/01/2018</td>
+                    <td>LOVERA, EMILIO</td>
+                    <td>32564286</td>
+                    <td>380</td>
+                    <td>380</td>
+                    <td>42.01.01</td>
+                    <td>286,00</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>Total Profesional</b></td>
+                    <td><b>572,00</b></td>
+                  </tr>
+
+                  <tr>
+                    <td>SR03</td>
+                    <td>SERVICIO ECO COLOR</td>
+                    <td>30/06/2019</td>
+                    <td>Servicio Cimac S.A.</td>
+                    <td>33095247</td>
+                    <td>602</td>
+                    <td>602</td>
+                    <td>99.00.01</td>
+                    <td>135.000,01</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>Total Profesional</b></td>
+                    <td><b>135.000,01</b></td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div> 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal Cuenta Interna Liquidación -->    
+
+    <div class="modal fade" id="modalCtaInternaLiqui" tabindex="-1" role="dialog" aria-labelledby="modalCtaInternaLiquiLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <h5 class="modal-title" id="modalCtaInternaLiquiLabel">Cuenta Interna Liquidación</h5>
+              </div>
+            </div>            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <p>Entidad Seleccionada - NO ASIGNADA</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-6">
+                    <span>Código Obra Social</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="text" class="form-control" placeholder="6" name="inpCodObrSoc">
+                  </div>
+                </div>                
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-6">
+                    <span>Sigla</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="text" class="form-control" placeholder="DOS" name="inpSigla">
+                  </div>
+                </div>                
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-6 ">
+                    <span class="float-right">Modifica OS</span>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="chkModifOs">
+                    </div>
+                  </div>
+                </div>                
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-6">
+                    <span>Nombre Obra Social</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Provincia" name="inpNomOs">
+                  </div>
+                </div> 
+              </div>
+            </div>
+            <div class="row">
+              
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-6">
+                    <span>Código Agrupación</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="text" class="form-control" name="inpCodAgr">
+                  </div>
+                </div> 
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-6">
+                    <span>Código Alternativo</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="text" class="form-control" name="inpCodAlt">
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-6">
+                    <span>Fecha Facturación</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="date" class="form-control" placeholder="04-09-2020" name="inpFecFact">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <div class="row">
+                  <div class="col-3">
+                    <span>Nombre Paciente</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="text" class="form-control" placeholder="GUERRERO JOSEFINA" name="inpNomPac">
+                  </div>                  
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                    <span>Nº Documento</span>
+                  </div>
+                  <div class="col-6">
+                    <input type="number" class="form-control" placeholder="17724016" name="inpNroDoc">
+                  </div>                  
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                    <span>Tipo Doc</span>
+                  </div>
+                  <div class="col-6">
+                    <div class="btn-group" role="group" aria-label="Tipo Doc">
+                      <button type="button" class="btn btn-primary">DNI</button>
+                      <button type="button" class="btn btn-secondary">LC</button>
+                      <button type="button" class="btn btn-danger">LE</button>
+                      <button type="button" class="btn btn-success">DU</button>
+                    </div>
+                  </div>                  
+                </div>
+              </div>
+              <div class="col-12 col-md-4 mt-2">
+                <span>Gravado - excento</span>
+                <div class="btn-group" role="group" aria-label="Gravado Excento">
+                  <button type="button" class="btn btn-primary">EX</button>
+                  <button type="button" class="btn btn-secondary">NG</button>
+                  <button type="button" class="btn btn-danger">GR</button>
+                </div>
+              </div>
+              
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-12 col-md-2 offset-md-2">
+                <input type="text" class="form-control" placeholder="11" name="inpCtaIntLiq">
+              </div>
+              <div class="col-12 col-md-2">
+                <span>320</span>
+              </div>
+              <div class="col-12 col-md-6">
+                <button type="button" class="btn btn-primary">Cuenta Interna Liquidación</button>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-12 col-md-4">Fecha</div>
+                  <div class="col-12 col-md-8">
+                    <input type="date" class="form-control" placeholder="02/01/2020" name="inpFec">
+                  </div>
+                </div>                
+              </div>
+              <div class="col-12 col-md-8">
+                <span>Corresponde a la cuenta donde se LIQUIDA a</span>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-12 col-md-4">Hora</div>
+                  <div class="col-12 col-md-8">
+                    <input type="time" class="form-control" placeholder="18:45:00" name="inpHor">
+                  </div>
+                </div>                
+              </div>
+              <div class="col-12 col-md-8">
+                <span><b>MOLLA LILIANA</b></span>
+              </div>
+            </div>  
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="row">
+                  <div class="col-12 col-md-4">Nº Carnet</div>
+                  <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" placeholder="" name="inpCarnet">
+                  </div>
+                </div>                
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="row">
+                  <div class="col-12 col-md-4">Nº Orden</div>
+                  <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" placeholder="" name="inpOrden">
+                  </div>
+                </div>                
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-12 col-md-4">Imp Práctica</div>
+                  <div class="col-12 col-md-8">
+                    <input type="number" class="form-control" placeholder="246,00" name="inpImpPrac">
+                  </div>
+                </div>                
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-12 col-md-4">Código Práctica</div>
+                  <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" placeholder="42.01.01" name="inpCodPra">
+                  </div>
+                </div>                
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="row">
+                  <div class="col-12">$ Valores OS</div>
+                </div>                
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-12 col-md-6 offset-md-6">
+                <div class="row">
+                  <div class="col-12 col-md-4">
+                    <span>Nombre Práctica</span>
+                  </div>
+                  <div class="col-12 col-md-8">
+                    <input type="text" class="form-control" placeholder="Consulta Medica Resir." name="inpNomPra">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6 offset-md-6">
+                <div class="row">
+                  <div class="col-12 col-md-4">
+                    <span>Inp Total Practica</span>
+                  </div>
+                  <div class="col-12 col-md-8">
+                    <input type="Number" class="form-control" placeholder="246,00" name="inpImpTotalPract">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <span>Estado del registro de turno</span>
+            <div class="row">
+              <div class="col-12 col-md-4">Opción Turno</div>
+              <div class="col-12 col-md-2">
+                <input type="text" class="form-control" placeholder="AU" name="inpOpcTur">
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="btn-group" role="group" aria-label="Gravado Excento">
+                  <button type="button" class="btn btn-success">Auditado</button>
+                  <button type="button" class="btn btn-warning">Pendiente</button>
+                  <button type="button" class="btn btn-primary">Facturar</button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <span>Opción Turno Descripción</span>                
+              </div>
+              <div class="col-12 col-md-8">
+                <input type="text" class="form-control" placeholder="AUDITADA" name="inpOpcTur">
+              </div>
+            </div>    
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/jquery-slim.min.js"><\/script>')</script>
+    -->
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Icons -->
+    <script src="../assets/js/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    
+  </body>
+</html>
+
+
+

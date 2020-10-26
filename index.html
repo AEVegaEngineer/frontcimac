@@ -1,14 +1,189 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redireccionando...</title>
-</head>
-<body>
-    <script type="text/javascript"> 
-        var urlBase = location.href.substring(0, location.href.lastIndexOf("/")+1)
-        window.location.href = urlBase+"views/auth/login.html";
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <title>Tablero</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap-table.min.css">
+
+    <!-- modals stackeados -->
+    <!--<link href="assets/css/bootstrap-modal-bs3patch.css" rel="stylesheet">-->
+    
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">CIMAC</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="cargarPagina('audFacTur');">Auditoría y Facturación de Turnos</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Auditados
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" id="linkPrefOsAudit">Prefactura O.S. Auditados</a>
+              <a class="dropdown-item" href="#" id="linkPrefOsProfAudit">Prefactura O.S. y Prof. Audit.</a>
+              <!--<div class="dropdown-divider"></div>-->
+              <a class="dropdown-item" href="#" id="linkPrefProfAudit">Prefactura Prof. Auditados</a>
+              <a class="dropdown-item" href="#" id="linkPrefServAudit">Prefactura Servicios Auditados</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Obras Sociales
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" id="ObraSocialCreate">Registrar Nueva Obra Social</a>
+              <a class="dropdown-item" href="#" onclick="cargarPagina('obrasocial/index');">Lista de Obras Sociales</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profesionales
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" id="ProfesionalCreate">Registrar Nuevo Profesional</a>
+              <a class="dropdown-item" href="#" id="ProfesionalList">Lista de Profesionales</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="form-inline my-2 my-lg-0">
+        <span class="text-light" id="WelcomeText">Bienvenido</span>
+      </div>
+    </nav>
+
+    <content id="contenido"></content>
+
+    <!-- Modal General-->
+    <div class="modal fade" id="modalGeneral" tabindex="-1" role="dialog" aria-labelledby="TituloCentrado" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalGeneralTitulo"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <div id="modalGeneralContenido" class="mensaje-alert naranja-medio">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalGeneralBtnCancel">Cancelar</button>
+            <button type="button" class="btn btn-primary"  data-dismiss="modal" id="modalGeneralBtnOk">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-slim.min.js"><\/script>')</script>
+    -->
+    
+    <script src="assets/js/charts.min.js"></script>
+    <!--DECOMENTAR ESTE SCRIPT PARA CREAR CHARTS-->
+    <!--script src="js/customChart.js"></script>-->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- js acceso a backend -->
+	  <script type="text/javascript" language="javascript" src="js/access.js"></script>
+	  <!-- js Personalizados -->
+	  <script type="text/javascript" language="javascript" src="js/custom.js"></script>
+
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Icons -->
+    <script src="assets/js/feather.min.js"></script>
+
+    <script src="assets/js/bootstrap-table.min.js"></script>
+    <script src="assets/js/bootstrap-table-es-AR.min.js"></script>
+
+
+    <script>
+      feather.replace()
     </script>
-</body>
+
+    
+    <script type="text/javascript">
+      //
+      var rol = "";
+      if(getRole() == 'ROLE_ADMIN')
+      {
+        rol = "Administrador";
+      }
+      $('#WelcomeText').text("Bienvenido "+rol+" "+getUsuario());
+
+      $('#tableAuditoria').on('click', 'tbody tr', function(event) {
+        //console.log(event)
+        $(this).addClass('table-primary').siblings().removeClass('table-primary');
+        $('#modalDetalle').modal('show');
+      });
+      $('#tableAuditoria').on('hidden.bs.modal', function () {
+        $('#tableAuditoria tbody tr').siblings().removeClass('table-primary');
+      });
+      $('#linkPrefOsAudit').click(function(e){
+        e.preventDefault();
+        $('#modalPrefOsAudit').modal('show');
+      });
+      $('#btnCtaInternaLiqui').click(function(){
+        $('#modalCtaInternaLiqui').modal('show');
+        console.log("se ejecuta el show")
+      });
+     
+      /*----------------------------------------------------------------------------*/
+      //SCRIPT PARA AJUSTAR EL Z-INDEX DE CADA MODAL QUE SE VA MOSTRANDO      
+      $('#modalCtaInternaLiqui').on('shown.bs.modal', function () { 
+        setTimeout(function() {
+          console.log("modalCtaInternaLiqui shown")
+          $('#modalDetalle').css('z-index', 1050);
+          $('.modal-backdrop').css('z-index', 1070); 
+          $('#modalCtaInternaLiqui').css('z-index', 1100);  
+        }, 50);
+      }); 
+      $('#modalCtaInternaLiqui').on('hidden.bs.modal', function () {  
+        console.log("modalCtaInternaLiqui hidden")         
+        $('.modal-backdrop').css('z-index', 1000); 
+        $('#modalDetalle').css('z-index', 1050);
+      });
+    </script>
+  </body>
 </html>
+
+
+
+
+  
+
+

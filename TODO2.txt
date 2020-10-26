@@ -1,0 +1,4 @@
+- Terminar de llenar datos de profesionales vacíos
+- Filtrar por profesionales y obra social, auditados y pendientes
+- Generar liquidación de todos los auditados
+- Preguntar qué son pendientes

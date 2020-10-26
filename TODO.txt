@@ -1,0 +1,12 @@
+TODO:
+
+CRUD Obras Sociales -> campos: 
+Nombre, 
+SIGLA, 
+Razón Social, 
+CUIT, 
+Tipo responsable iva (1-Responsable inscripto 21%, 2-consumidor final 21%, 3-exento 0%,  4-exento reducido 10.5%, 5-responsable inscripto 10.5%, 6-responsable inscripto 0%)
+
+
+CRUD Profesionales -> campos: 
+Nombre y apellido, tipo (Medica general, ginecologo, etc), Matricula, Numero de cuenta interna

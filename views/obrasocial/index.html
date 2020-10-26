@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-md-9 col-12 col-md-10 offset-md-1  pt-3 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Obras Sociales</h1>
+      </div> 
+      <button class="btn btn-info" id="btnCreateOS">Registrar Nueva Obra Social</button>
+      <div class="table-responsive">
+        <table data-toggle="table" class="table table-striped table-sm" id="tableObrasSociales">
+          <thead>
+            <tr>        
+              <th >Alias</th>
+              <th >Razón Social</th>
+              <th >Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>      
+    </main>
+  </div>
+</div>
+
+<!-- Modal Registro y Edición de OS -->    
+<div class="modal fade" id="modalCRUDObraSocial" tabindex="-1" role="dialog" aria-labelledby="modalEditarObraSocialLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloModal">Editar Obra Social</h5>           
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editOSSigla">Sigla</label>
+            <input type="text" class="form-control" name="editOSSigla" id="editOSSigla">
+          </div>
+        </div>  
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editOSRazonSocial">Razón Social</label>
+            <input type="text" class="form-control" name="editOSRazonSocial" id="editOSRazonSocial">
+          </div>
+        </div>              
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editOSCuit">CUIT</label>
+            <input type="number" class="form-control" name="editOSCuit" id="editOSCuit">
+          </div>
+        </div> 
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editOSTipoResponsable">Tipo Responsable</label>
+            <input type="number" class="form-control" name="editOSTipoResponsable" id="editOSTipoResponsable">
+          </div>
+        </div> 
+        <input type="hidden" name="editOSId" id="editOSId">
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnOSUpdate" class="btn btn-success" data-dismiss="modal">Actualizar</button>
+        <button type="button" id="btnOSStore" class="btn btn-success" data-dismiss="modal">Registrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  //
+  $('#tableAuditoria').on('click', 'tbody tr', function(event) {
+    console.log(event.currentTarget)
+    $(this).addClass('table-primary').siblings().removeClass('table-primary');
+    $('#modalDetalle').modal('show');
+  });
+  $('#tableAuditoria').on('hidden.bs.modal', function () {
+    $('#tableAuditoria tbody tr').siblings().removeClass('table-primary');
+  });
+  $('#linkPrefOsAudit').click(function(e){
+    e.preventDefault();
+    $('#modalPrefOsAudit').modal('show');
+  });
+  $('#btnCtaInternaLiqui').click(function(){
+    $('#modalCtaInternaLiqui').modal('show');
+    console.log("se ejecuta el show")
+  });
+ 
+  /*----------------------------------------------------------------------------*/
+  //SCRIPT PARA AJUSTAR EL Z-INDEX DE CADA MODAL QUE SE VA MOSTRANDO      
+  $('#modalCtaInternaLiqui').on('shown.bs.modal', function () { 
+    setTimeout(function() {
+      console.log("modalCtaInternaLiqui shown")
+      $('#modalDetalle').css('z-index', 1050);
+      $('.modal-backdrop').css('z-index', 1070); 
+      $('#modalCtaInternaLiqui').css('z-index', 1100);  
+    }, 50);
+  }); 
+  $('#modalCtaInternaLiqui').on('hidden.bs.modal', function () {  
+    console.log("modalCtaInternaLiqui hidden")         
+    $('.modal-backdrop').css('z-index', 1000); 
+    $('#modalDetalle').css('z-index', 1050);
+  });
+</script>
+<!--<script src="js/DataTableInit.js"></script>-->
+<script src="js/obrasocial/index.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
+    
+    
