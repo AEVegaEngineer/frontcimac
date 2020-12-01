@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-md-9 col-12 col-md-10 offset-md-1  pt-3 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Profesionales</h1>
+      </div> 
+      <button class="btn btn-info" id="btnCreateProfesional">Registrar Nuevo Profesional</button>
+      <div class="table-responsive">
+        <table data-toggle="table" class="table table-striped table-sm" id="tableProfesionales">
+          <!--
+          <thead>
+            <tr>        
+              <th>Nombre</th>
+              <th>Tipo Profesional</th>
+              <th>Matricula</th>
+              <th>Nro Cuenta Interna</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+          -->
+        </table>
+      </div>      
+    </main>
+  </div>
+</div>
+
+<!-- Modal Registro y Edición de OS -->    
+<div class="modal fade" id="modalCRUDProfesionales" tabindex="-1" role="dialog" aria-labelledby="modalEditarObraSocialLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloModal">Editar Obra Social</h5>           
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editProNombre">Nombre del Profesional</label>
+            <input type="text" class="form-control" name="editProNombre" id="editProNombre">
+          </div>
+        </div>  
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editProTipo">Tipo de Profesional</label>
+            <!--<input type="text" disabled="" class="form-control" name="editProTipo" id="editProTipo">-->
+            <select class="form-control" name="editProTipo" id="editProTipo"></select>
+          </div>
+        </div>              
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editProMatricula">Matrícula</label>
+            <input type="text" class="form-control" name="editProMatricula" id="editProMatricula">
+          </div>
+        </div> 
+        <div class="row mt-3">
+          <div class="col-12">
+            <label for="editProCuentaInterna">Cuenta Interna</label>
+            <input type="text" class="form-control" name="editProCuentaInterna" id="editProCuentaInterna">
+          </div>
+        </div> 
+        <input type="hidden" name="editProId" id="editProId">
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnProUpdate" class="btn btn-success" data-dismiss="modal">Actualizar</button>
+        <button type="button" id="btnProStore" class="btn btn-success" data-dismiss="modal">Registrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  //
+  $('#tableAuditoria').on('click', 'tbody tr', function(event) {
+    console.log(event.currentTarget)
+    $(this).addClass('table-primary').siblings().removeClass('table-primary');
+    $('#modalDetalle').modal('show');
+  });
+  $('#tableAuditoria').on('hidden.bs.modal', function () {
+    $('#tableAuditoria tbody tr').siblings().removeClass('table-primary');
+  });
+  $('#linkPrefOsAudit').click(function(e){
+    e.preventDefault();
+    $('#modalPrefOsAudit').modal('show');
+  });
+  $('#btnCtaInternaLiqui').click(function(){
+    $('#modalCtaInternaLiqui').modal('show');
+    console.log("se ejecuta el show")
+  });
+ 
+  /*----------------------------------------------------------------------------*/
+  //SCRIPT PARA AJUSTAR EL Z-INDEX DE CADA MODAL QUE SE VA MOSTRANDO      
+  $('#modalCtaInternaLiqui').on('shown.bs.modal', function () { 
+    setTimeout(function() {
+      console.log("modalCtaInternaLiqui shown")
+      $('#modalDetalle').css('z-index', 1050);
+      $('.modal-backdrop').css('z-index', 1070); 
+      $('#modalCtaInternaLiqui').css('z-index', 1100);  
+    }, 50);
+  }); 
+  $('#modalCtaInternaLiqui').on('hidden.bs.modal', function () {  
+    console.log("modalCtaInternaLiqui hidden")         
+    $('.modal-backdrop').css('z-index', 1000); 
+    $('#modalDetalle').css('z-index', 1050);
+  });
+</script>
+<!--<script src="js/DataTableInit.js"></script>-->
+<script src="js/profesionales/index.js?4"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
+    
+    

@@ -9,13 +9,14 @@
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <title>Tablero</title>
+    <title>Sistema CIMAC</title>
     <!-- Bootstrap core CSS -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap-table.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- modals stackeados -->
     <!--<link href="assets/css/bootstrap-modal-bs3patch.css" rel="stylesheet">-->
@@ -56,23 +57,11 @@
               <a class="dropdown-item" href="#" id="linkPrefServAudit">Prefactura Servicios Auditados</a>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Obras Sociales
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#" id="ObraSocialCreate">Registrar Nueva Obra Social</a>
-              <a class="dropdown-item" href="#" onclick="cargarPagina('obrasocial/index');">Lista de Obras Sociales</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="cargarPagina('obrasocial/index');">Obras Sociales</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Profesionales
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#" id="ProfesionalCreate">Registrar Nuevo Profesional</a>
-              <a class="dropdown-item" href="#" id="ProfesionalList">Lista de Profesionales</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="cargarPagina('profesionales/index');">Profesionales</a>
           </li>
         </ul>
       </div>
@@ -104,6 +93,7 @@
         </div>
       </div>
     </div>
+    <div id="preloader"></div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -127,8 +117,8 @@
     <!-- Icons -->
     <script src="assets/js/feather.min.js"></script>
 
-    <script src="assets/js/bootstrap-table.min.js"></script>
-    <script src="assets/js/bootstrap-table-es-AR.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/principal.js"></script>
 
 
     <script>

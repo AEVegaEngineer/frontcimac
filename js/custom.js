@@ -471,7 +471,7 @@ function postJson(url, parametros, loadingScrn, callback){
     });
   }
   function postJsonSafe(url, parametros, loadingScrn, callback){
-    console.log(obtenerSS("accessToken"));
+    //console.log(obtenerSS("accessToken"));
     $.ajax({
       async: true,
       /*
@@ -482,7 +482,7 @@ function postJson(url, parametros, loadingScrn, callback){
       url: urlServidor+url,
       type: "POST",
       headers: {
-        "x-access-token": obtenerSS("accessToken")
+        "Authorization": "Bearer "+obtenerSS("accessToken")
       },
       beforeSend: function () {
         if(loadingScrn==true){
@@ -541,7 +541,7 @@ function postJson(url, parametros, loadingScrn, callback){
       url: urlServidor+url,
       type: "PUT",
       headers: {
-        "x-access-token": obtenerSS("accessToken")
+        "Authorization": "Bearer "+obtenerSS("accessToken")
       },
       beforeSend: function () {
         if(loadingScrn==true){
@@ -655,7 +655,7 @@ function getJsonSafe(url, parametros, loadingScrn, callback){
     type: "GET",
     headers: {
       "Cache-Control": "no-cache",
-      "x-access-token": obtenerSS("accessToken")
+      "Authorization": "Bearer "+obtenerSS("accessToken")
     },
     beforeSend: function () {
       if(loadingScrn==true){
@@ -694,6 +694,27 @@ function getJsonSafe(url, parametros, loadingScrn, callback){
       }, 500);
     }
   });
+}
+function mostrarLoader() { $("#preloader").modal("show") }
+function esconderLoader() { $("#preloader").modal("hide") }
+
+async function getFetchSafe(url = ''){
+  // Opciones por defecto estan marcadas con un * 
+  const response = await fetch(urlServidor+url, {
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    //credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      "Cache-Control": "no-cache",
+      "Authorization": "Bearer "+obtenerSS("accessToken")
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    
+  });
+  return response.json(); // parses JSON response into native JavaScript objects  
+  
 }
 //---------------------------------------------------------------------------------------------
 // url = el Path a consultar

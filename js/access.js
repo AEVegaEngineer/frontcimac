@@ -1,3 +1,3 @@
-var servidor = "http://181.118.74.67";
-var puerto = "3002";
-var urlServidor = servidor +":"+puerto+"/";
+const servidor = "http://servidoraweb.ddns.net";
+const puerto = "3002";
+const urlServidor = servidor +":"+puerto+"/";

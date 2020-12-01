@@ -37,14 +37,6 @@ function construirObjetoConsulta(tipoconsulta){
 	}	
   return OS;
 }
-
-// manejo para Updates de OS
-
-$('#btnOSUpdate').click(function(){	
-	var OS = construirObjetoConsulta("actualizacion");
-	console.log(OS);
-	//putJsonSafe("api/admin/updateObraSocialById", OS, true, validaActualizacion);
-});
 function validaActualizacion(json){
 	console.log(json)
 }
@@ -63,6 +55,14 @@ function osEditForm(obj)
 	$('#btnOSUpdate').show();
 	$('#btnOSStore').hide();
 }
+// manejo para Updates de OS
+
+$('#btnOSUpdate').click(function(){	
+	var OS = construirObjetoConsulta("actualizacion");
+	console.log(OS);
+	//putJsonSafe("api/admin/updateObraSocialById", OS, true, validaActualizacion);
+});
+
 obtenerObrasSociales();
 
 // manejo para Stores de OS
@@ -86,5 +86,6 @@ $('#btnOSStore').click(function(){
 });
 
 function validaStore(json){
-	console.log(json)
+	console.log(json);
+	obtenerObrasSociales();
 }
