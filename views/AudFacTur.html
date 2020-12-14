@@ -5,6 +5,7 @@
         <main role="main" class="col-md-9 col-12 col-md-10 offset-md-1  pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Auditoría y Facturación de Turnos </h1>
+            <button class="btn btn-primary" id="btnRegistrarFacturacion" name="btnRegistrarFacturacion">Registrar facturación</button>
             <!-- <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -17,15 +18,37 @@
             </div> -->
           </div>        
           <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-3">
+              <h4>Filtros de la tabla</h4>
+            </div>  
+            <div class="col-12 col-md-3">
               <select id="selEstado" name="selEstado" class="form-control">
                 <option value="1" selected="">Sin Auditar</option>
                 <option value="2">Auditado</option>
                 <option value="3">Pendiente</option>
                 <option value="4">Facturado</option>
               </select>
-            </div> 
+            </div>             
           </div>
+          <hr>
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <span>Cambiar estado de la facturación marcada a:</span>
+            </div>
+            <div class="col-12 col-md-4">
+              <select id="selEstadoUpdate" name="selEstadoUpdate" class="form-control">
+                <option value="1" selected="">Sin Auditar</option>
+                <option value="2">Auditado</option>
+                <option value="3">Pendiente</option>
+                <option value="4">Facturado</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-3">
+              <button class="btn btn-info" id="btnMark">Cambiar</button>
+            </div>
+          </div>
+
+          <!--
           <ul class="nav nav-tabs">
             <li class="nav-item">
               <a class="nav-link active" href="#">Profesional - Obra Social</a>
@@ -39,12 +62,11 @@
             <li class="nav-item">
               <a class="nav-link" href="#">DNI Paciente</a>
             </li>
-            <!--
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
-            -->
           </ul>
+          -->
           <!--<tr class="table-danger">-->
           <div class="table-responsive">
             <table data-toggle="table" class="table table-striped table-sm" id="tableAuditoria">
@@ -57,73 +79,53 @@
         </main>
       </div>
     </div>
-    <!-- Modal detalles -->    
+    <!-- Modal registro de nueva práctica externa -->    
 
-    <div class="modal fade" id="modalDetalle" tabindex="-1" role="dialog" aria-labelledby="modalDetalleLabel" aria-hidden="true">
+    <div class="modal fade" id="modalCRUDPracticaExterna" tabindex="-1" role="dialog" aria-labelledby="modalCRUDPracticaExternaLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalDetalleLabel">Detalle</h5>
+            <h5 class="modal-title" id="modalCRUDPracticaExternaLabel">Registrar práctica externa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="row">
-              <!--
-              <div class="col-12 col-md-6">
-                <p><b>OP Afil: </b>NG</p>
-              </div>
-              -->
-              <div class="col-12 col-md-6">
-                <b>Fecha de Turno : </b><span id="detSpanTurnFec"></span></p>                
-                <!--<p><b>Fecha Corte : </b>04/09/2020</p>-->
-              </div>
-              <div class="col-12 col-md-6">
-                <p><b>OS: </b><span id="detSpanSigla"></span></p>
-              </div>
-            </div>
-            <div class="row">
-              <!--
-              <div class="col-12 col-md-6">
-                <p><b>Nº Carnet: </b>/013</p>
-              </div>
-              -->
-            </div>
-            <div class="row">              
-              <div class="col-12 col-md-6">
-                <p><b>Cta Liquid: </b><span id="detSpanCtaLiq"></span></p>
-              </div>
-              <div class="col-12 col-md-6">
-                <p><b>Cod Prof: </b><span id="detSpanCodPro"></span></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <p><b>Imp Tot Practica : </b><span id="detSpanImpTot"></span></p>
-              </div>
-              <div class="col-12 col-md-6">
-                <p><b>Cod. Pract. : </b><span id="detSpanCodPra"></span></p>
-              </div>
-            </div>
-            <div class="row">             
-              <div class="col-12 col-md-6">
-                <p><b>Descrip. Pract. : </b><span id="detSpanNomPra"></span></p>
-              </div>
-              <div class="col-12 col-md-6">
-                <p><b>EST. LIQ. : </b><span id="detSpanEstLiq"></span></p>
-              </div>
-            </div>
-            <div class="row">
-              <!--              
-              <div class="col-12 col-md-6">
-                <p><b>OP Turno : </b>AU</p>
-              </div>             
-              -->
-            </div>
-            <div class="row">
               <div class="col-12">
-                <button class="btn btn-primary btn-block" id="btnCtaInternaLiqui">Cuenta Interna Liquidación</button>
+                <span>Código de práctica</span>
+                <input type="text" class="form-control" name="inpCreateCodigoPractica" id="inpCreateCodigoPractica">
+              </div>              
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <span>Nombre de práctica</span>
+                <input type="text" class="form-control" name="inpCreateNombrePractica" id="inpCreateNombrePractica">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <span>Especialidad</span>
+                <input type="text" class="form-control" name="inpCreateEspecialidadPractica" id="inpCreateEspecialidadPractica">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <span>Importe</span>
+                <input type="number" class="form-control" name="inpCreateImportePractica" id="inpCreateImportePractica">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <span>Comentario</span>
+                <input type="text" class="form-control" name="inpCreateComentarioPractica" id="inpCreateComentarioPractica">
+              </div>
+            </div>
+            <input type="hidden" name="inpCreateFactId" id="inpCreateFactId" value="">            
+            <input type="hidden" name="inpCreateExtId" id="inpCreateExtId" value="">            
+            <div class="row mt-3">
+              <div class="col-12">
+                <button class="btn btn-success btn-block" id="btnRegistrarPracticaExterna">Registrar</button>
               </div>
             </div>
           </div>
@@ -164,125 +166,7 @@
             </div>   
 
             <div class="table-responsive">
-              <table class="table table-striped table-sm" id="tableAuditoria">
-                <thead>
-                  <tr>
-                    <th data-field="num_carnet">Número de Carnet</th>
-                    <th data-field="profesional">Profesional</th>
-                    <th data-field="turno_fecha">Fecha de </th>
-                    <th data-field="paciente_os_nombre">Nom Paciente</th>
-                    <th data-field="paciente_documento">DNI</th>
-                    <th data-field="paciente_documento">Cta. Liq.</th>
-                    <th>Nro. Orden</th>
-                    <th>Cod. Práctica</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>112</td>
-                    <td>GATICA, ROXANA EMILSE</td>
-                    <td>02/01/2018</td>
-                    <td>CARRIZO, GABRIEL</td>
-                    <td>32034040</td>
-                    <td>447</td>
-                    <td>447</td>
-                    <td>17.01.01</td>
-                    <td>220,00</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><b>Total Profesional</b></td>
-                    <td><b>220,00</b></td>
-                  </tr>
-
-                  <tr>
-                    <td>138</td>
-                    <td>MOLINA, MAURICIO</td>
-                    <td>03/01/2018</td>
-                    <td>FLORES, DARIO</td>
-                    <td>34915800</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>42.01.01</td>
-                    <td>286,00</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><b>Total Profesional</b></td>
-                    <td><b>286,00</b></td>
-                  </tr>
-
-                  <tr>
-                    <td>94</td>
-                    <td>CASTRO, MARIA</td>
-                    <td>02/01/2018</td>
-                    <td>CARRIZO, IVANA</td>
-                    <td>33095247</td>
-                    <td>380</td>
-                    <td>380</td>
-                    <td>42.01.01</td>
-                    <td>286,00</td>
-                  </tr>
-                  <tr>
-                    <td>94</td>
-                    <td>CASTRO, MARIA</td>
-                    <td>02/01/2018</td>
-                    <td>LOVERA, EMILIO</td>
-                    <td>32564286</td>
-                    <td>380</td>
-                    <td>380</td>
-                    <td>42.01.01</td>
-                    <td>286,00</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><b>Total Profesional</b></td>
-                    <td><b>572,00</b></td>
-                  </tr>
-
-                  <tr>
-                    <td>SR03</td>
-                    <td>SERVICIO ECO COLOR</td>
-                    <td>30/06/2019</td>
-                    <td>Servicio Cimac S.A.</td>
-                    <td>33095247</td>
-                    <td>602</td>
-                    <td>602</td>
-                    <td>99.00.01</td>
-                    <td>135.000,01</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><b>Total Profesional</b></td>
-                    <td><b>135.000,01</b></td>
-                  </tr>
-                </tbody>
-              </table> 
+              <table class="table table-striped table-sm" id="tableAuditoria"></table> 
             </div> 
           </div>
           <div class="modal-footer">
@@ -301,7 +185,7 @@
           <div class="modal-header">
             <div class="row">
               <div class="col-12 col-md-8">
-                <h5 class="modal-title" id="modalCtaInternaLiquiLabel">Cuenta Interna Liquidación</h5>
+                <h5 class="modal-title" id="modalCtaInternaLiquiLabel">Facturación</h5>
               </div>
             </div>            
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -310,262 +194,151 @@
           </div>
           <div class="modal-body">
             <div class="row">
+              <div class="col-12 col-md-3">
+                <span>Código Obra Social</span>
+                <input type="text" class="form-control" name="inpCodObrSoc" id="inpCodObrSoc" disabled>
+              </div>
+              <div class="col-12 col-md-3">
+                <span>Sigla</span>
+                <input type="text" class="form-control" name="inpSigla" id="inpSigla" disabled>
+              </div>
               <div class="col-12 col-md-6">
-                <p>Entidad Seleccionada - NO ASIGNADA</p>
+                <span>Nombre Obra Social</span>
+                <input type="text" class="form-control" name="inpNomOs" id="inpNomOs" disabled>
               </div>
             </div>
+            <div class="row mt-3">
+              
+              <div class="col-12 col-md-3">
+                <span>Código Agrupación</span>
+                <input type="text" class="form-control" name="inpCodAgr" disabled>                
+              </div>
+              <div class="col-12 col-md-3">
+                <span>Código Alternativo</span>
+                <input type="text" class="form-control" name="inpCodAlt" disabled>              
+              </div>
+              <div class="col-12 col-md-3">
+                <span>Fecha Facturación</span>
+                <input type="date" class="form-control" name="inpFecFact" id="inpFecFact" disabled>              
+              </div>              
+            </div>
+            <hr>
             <div class="row">
               <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-6">
-                    <span>Código Obra Social</span>
-                  </div>
-                  <div class="col-6">
-                    <input type="text" class="form-control" placeholder="6" name="inpCodObrSoc">
-                  </div>
-                </div>                
+                <span>Nombre Paciente</span>
+                <input type="text" class="form-control" name="inpNomPac" id="inpNomPac" disabled>
+              </div>
+              <div class="col-12 col-md-2">
+                <span>Nº Documento</span>
+                <input type="number" class="form-control" name="inpNroDoc" id="inpNroDoc" disabled>
               </div>
               <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-6">
-                    <span>Sigla</span>
-                  </div>
-                  <div class="col-6">
-                    <input type="text" class="form-control" placeholder="DOS" name="inpSigla">
-                  </div>
-                </div>                
+                <span>Tipo Documento </span>
+                <h3>DNI</h3>
+                <!--
+                <input type="hidden" name="inpHiddenTipoDoc" value="">
+                <div class="btn-group" role="group" aria-label="Tipo Doc" id="btnGroupTipoDoc">
+                  <button type="button" class="btn btn-primary">DNI</button>
+                  <button type="button" class="btn btn-secondary">LC</button>
+                  <button type="button" class="btn btn-danger">LE</button>
+                  <button type="button" class="btn btn-success">DU</button>
+                </div>
+                -->
               </div>
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-6 ">
-                    <span class="float-right">Modifica OS</span>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="chkModifOs">
-                    </div>
-                  </div>
-                </div>                
+            </div>            
+            <hr>
+            <div class="row">
+              <div class="col-12 col-md-3 offset-md-3">
+                <span>Cuenta Interna Liquidación</span>
+                <input type="text" class="form-control" name="inpCtaIntLiq" id="inpCtaIntLiq" disabled>
               </div>
+              <div class="col-12 col-md-3">
+                <span>Corresponde a la cuenta donde se LIQUIDA a </span>
+                <span id="spanLiquidaA"><b>MOLLA LILIANA</b></span>
+              </div>              
             </div> 
-            <div class="row">
+            <div class="row mt-3">
+              <div class="col-12 col-md-3">
+                <span>Fecha</span>
+                <input type="date" class="form-control" name="inpFec" id="inpFec" disabled>
+              </div>
+              <div class="col-12 col-md-3">
+                <span>Hora</span>
+                <input type="time" class="form-control" name="inpHor" id="inpHor" disabled>
+              </div>
+              <div class="col-12 col-md-3">
+                <span>Nº Carnet</span>
+                <input type="text" class="form-control" name="inpCarnet" id="inpCarnet" disabled>
+              </div>
+              <div class="col-12 col-md-3">
+                <span>Nº Orden</span>
+                <input type="text" class="form-control" name="inpOrden" id="inpOrden" disabled>
+              </div>
+            </div>            
+            <div class="row mt-3">             
+              <div class="col-12 col-md-2">
+                <span>Código Práctica</span>
+                <input type="text" class="form-control" name="inpCodPra" id="inpCodPra" disabled>
+              </div>
+              <div class="col-12 col-md-4">
+                <span>Nombre Práctica</span>
+                <input type="text" class="form-control" name="inpNomPra" id="inpNomPra" disabled>
+              </div>
+               <div class="col-12 col-md-3">
+                <span>Importe Práctica</span>
+                <input type="number" class="form-control" name="inpImpPrac" id="inpImpPrac" disabled>
+              </div>
+              
+            </div>
+            
+            <div class="row mt-3">
               <div class="col-12">
-                <div class="row">
-                  <div class="col-6">
-                    <span>Nombre Obra Social</span>
-                  </div>
-                  <div class="col-6">
-                    <input type="text" class="form-control" placeholder="Provincia" name="inpNomOs">
-                  </div>
-                </div> 
+                <h4 class="text-center">Prácticas Externas</h4>
+                <div class="table-responsive">
+                  <table data-toggle="table" class="table table-striped" id="tableFacturacionesExternas"></table>
+                </div>                
+              </div>              
+            </div>
+            <div class="row ">              
+              <div class="col-12 col-md-4 offset-md-4">
+                <button class="btn btn-primary" id="btnCreateExt">Registrar Practica Externa</button>
               </div>
             </div>
-            <div class="row">
-              
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-6">
-                    <span>Código Agrupación</span>
-                  </div>
-                  <div class="col-6">
-                    <input type="text" class="form-control" name="inpCodAgr">
-                  </div>
-                </div> 
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-6">
-                    <span>Código Alternativo</span>
-                  </div>
-                  <div class="col-6">
-                    <input type="text" class="form-control" name="inpCodAlt">
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-6">
-                    <span>Fecha Facturación</span>
-                  </div>
-                  <div class="col-6">
-                    <input type="date" class="form-control" placeholder="04-09-2020" name="inpFecFact">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
 
-            <div class="row">
-              <div class="col-12 col-md-8">
+            <div class="row mt-3">
+              <div class="col-12 col-md-8 offset-md-2">
                 <div class="row">
-                  <div class="col-3">
-                    <span>Nombre Paciente</span>
+                  <div class="col-md-6">
+                    <h4 class="text-center">Importe Total Prácticas</h4>
                   </div>
-                  <div class="col-6">
-                    <input type="text" class="form-control" placeholder="GUERRERO JOSEFINA" name="inpNomPac">
-                  </div>                  
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                    <span>Nº Documento</span>
+                  <div class="col-md-6">
+                    <input type="Number" class="form-control" style="font-size: 30px;" name="inpImpTotalPract" id="inpImpTotalPract" disabled>
                   </div>
-                  <div class="col-6">
-                    <input type="number" class="form-control" placeholder="17724016" name="inpNroDoc">
-                  </div>                  
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                    <span>Tipo Doc</span>
-                  </div>
-                  <div class="col-6">
-                    <div class="btn-group" role="group" aria-label="Tipo Doc">
-                      <button type="button" class="btn btn-primary">DNI</button>
-                      <button type="button" class="btn btn-secondary">LC</button>
-                      <button type="button" class="btn btn-danger">LE</button>
-                      <button type="button" class="btn btn-success">DU</button>
-                    </div>
-                  </div>                  
                 </div>
               </div>
-              <div class="col-12 col-md-4 mt-2">
-                <span>Gravado - excento</span>
+            </div>
+            <hr>            
+            <div class="row mt-3">              
+              <div class="col-12 col-md-6">
+                <span>Cambiar Estado del registro de turno</span>
+                <br>
                 <div class="btn-group" role="group" aria-label="Gravado Excento">
-                  <button type="button" class="btn btn-primary">EX</button>
-                  <button type="button" class="btn btn-secondary">NG</button>
-                  <button type="button" class="btn btn-danger">GR</button>
+                  <button type="button" class="btn btn-success" id="btnCambiarAuditado">Auditado</button>
+                  <button type="button" class="btn btn-warning" id="btnCambiarPendiente">Pendiente</button>
+                  <button type="button" class="btn btn-primary" id="btnCambiarFacturado">Facturado</button>
                 </div>
               </div>
-              
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-12 col-md-2 offset-md-2">
-                <input type="text" class="form-control" placeholder="11" name="inpCtaIntLiq">
-              </div>
-              <div class="col-12 col-md-2">
-                <span>320</span>
-              </div>
               <div class="col-12 col-md-6">
-                <button type="button" class="btn btn-primary">Cuenta Interna Liquidación</button>
-              </div>
-            </div> 
-            <div class="row">
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-12 col-md-4">Fecha</div>
-                  <div class="col-12 col-md-8">
-                    <input type="date" class="form-control" placeholder="02/01/2020" name="inpFec">
-                  </div>
-                </div>                
-              </div>
-              <div class="col-12 col-md-8">
-                <span>Corresponde a la cuenta donde se LIQUIDA a</span>
-              </div>
-            </div> 
-            <div class="row">
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-12 col-md-4">Hora</div>
-                  <div class="col-12 col-md-8">
-                    <input type="time" class="form-control" placeholder="18:45:00" name="inpHor">
-                  </div>
-                </div>                
-              </div>
-              <div class="col-12 col-md-8">
-                <span><b>MOLLA LILIANA</b></span>
-              </div>
-            </div>  
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <div class="row">
-                  <div class="col-12 col-md-4">Nº Carnet</div>
-                  <div class="col-12 col-md-8">
-                    <input type="text" class="form-control" placeholder="" name="inpCarnet">
-                  </div>
-                </div>                
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="row">
-                  <div class="col-12 col-md-4">Nº Orden</div>
-                  <div class="col-12 col-md-8">
-                    <input type="text" class="form-control" placeholder="" name="inpOrden">
-                  </div>
-                </div>                
-              </div>
-            </div> 
-            <div class="row">
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-12 col-md-4">Imp Práctica</div>
-                  <div class="col-12 col-md-8">
-                    <input type="number" class="form-control" placeholder="246,00" name="inpImpPrac">
-                  </div>
-                </div>                
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-12 col-md-4">Código Práctica</div>
-                  <div class="col-12 col-md-8">
-                    <input type="text" class="form-control" placeholder="42.01.01" name="inpCodPra">
-                  </div>
-                </div>                
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="row">
-                  <div class="col-12">$ Valores OS</div>
-                </div>                
-              </div>
-            </div> 
-            <div class="row">
-              <div class="col-12 col-md-6 offset-md-6">
-                <div class="row">
-                  <div class="col-12 col-md-4">
-                    <span>Nombre Práctica</span>
-                  </div>
-                  <div class="col-12 col-md-8">
-                    <input type="text" class="form-control" placeholder="Consulta Medica Resir." name="inpNomPra">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-6 offset-md-6">
-                <div class="row">
-                  <div class="col-12 col-md-4">
-                    <span>Inp Total Practica</span>
-                  </div>
-                  <div class="col-12 col-md-8">
-                    <input type="Number" class="form-control" placeholder="246,00" name="inpImpTotalPract">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <span>Estado del registro de turno</span>
-            <div class="row">
-              <div class="col-12 col-md-4">Opción Turno</div>
-              <div class="col-12 col-md-2">
-                <input type="text" class="form-control" placeholder="AU" name="inpOpcTur">
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="btn-group" role="group" aria-label="Gravado Excento">
-                  <button type="button" class="btn btn-success">Auditado</button>
-                  <button type="button" class="btn btn-warning">Pendiente</button>
-                  <button type="button" class="btn btn-primary">Facturar</button>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-4">
-                <span>Opción Turno Descripción</span>                
-              </div>
-              <div class="col-12 col-md-8">
-                <input type="text" class="form-control" placeholder="AUDITADA" name="inpOpcTur">
+                <span>Estado seleccionado</span>
+                <h3 class="text-danger" id="h3EstadoActual"></h3>
+                <input type="hidden" name="inpEstadoActual" id="inpEstadoActual" value="">
+                <!--<input type="text" class="form-control" name="inpOpcTurDesc" >-->
               </div>
             </div>    
           </div>
+          <input type="hidden" name="idFact" id="idFact" value="">
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Guardar</button>
+            <button type="button" class="btn btn-success" id="btnGuardar">Guardar</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
@@ -577,7 +350,9 @@
     
     
     <!-- Graphs -->
-    <script src="js/AudFacTur.js?5"></script>
+    <script src="js/vendor/moment_js_locales.js"></script>    
+    <script src="js/AudFacTur.js?15"></script>
+
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
     
     

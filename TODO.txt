@@ -1,6 +1,6 @@
 TODO:
 
-CRUD Obras Sociales -> campos: 
+(X) CRUD Obras Sociales -> campos: 
 Nombre, 
 SIGLA, 
 Razón Social, 
@@ -8,5 +8,15 @@ CUIT,
 Tipo responsable iva (1-Responsable inscripto 21%, 2-consumidor final 21%, 3-exento 0%,  4-exento reducido 10.5%, 5-responsable inscripto 10.5%, 6-responsable inscripto 0%)
 
 
-CRUD Profesionales -> campos: 
+(X) CRUD Profesionales -> campos: 
 Nombre y apellido, tipo (Medica general, ginecologo, etc), Matricula, Numero de cuenta interna
+
+
+(X) Terminar de llenar datos de profesionales vacíos
+( ) Formulario de edición de prácticas externas
+( ) Registro de facturación
+( ) Separar el enrutamiento para que solo cargue asincrónicamente las funciones de una página en concreto,
+		no cargar las variables de AudFacTur para las demás páginas porque se redefine la variable, cada
+		página debe cargar sincrónicamente independiente. 
+( ) Filtrar por profesionales y obra social, auditados y pendientes
+( ) Generar liquidación de todos los auditados

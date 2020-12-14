@@ -716,6 +716,48 @@ async function getFetchSafe(url = ''){
   return response.json(); // parses JSON response into native JavaScript objects  
   
 }
+async function putFetchSafe(url = '', data = {}){
+  /*
+  console.log(url);
+  console.log(JSON.stringify(data));
+  */
+  // Opciones por defecto estan marcadas con un * 
+  const response = await fetch(urlServidor+url, {
+    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    //credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      "Cache-Control": "no-cache",
+      "Authorization": "Bearer "+obtenerSS("accessToken"),
+      "Content-Type":"application/json"
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects  
+  
+}
+async function postFetchSafe(url = '', data = {}){
+  // Opciones por defecto estan marcadas con un * 
+  const response = await fetch(urlServidor+url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    //credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      "Cache-Control": "no-cache",
+      "Authorization": "Bearer "+obtenerSS("accessToken"),
+      "Content-Type":"application/json"
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects  
+  
+}
 //---------------------------------------------------------------------------------------------
 // url = el Path a consultar
 // parametros = json con parametros requeridos por el path
