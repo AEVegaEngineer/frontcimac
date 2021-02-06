@@ -13,10 +13,17 @@ Nombre y apellido, tipo (Medica general, ginecologo, etc), Matricula, Numero de 
 
 
 (X) Terminar de llenar datos de profesionales vacíos
+(X) Ocultar campos del modal de facturacion que no se usen cuando se abra para un registro nuevo de facturacion y volverlos a visualizar cuando se abra para ver una facturacion ya registrada
+(X) Registro de facturación (práctica)
+(X) Cerrar sesion.
+(X) reemplazar botón de cambiar estado por "facturar" para las practicas en estado pendiente, el cual va a llamar al endpoint "CREAR FACTURA GENERADA DESDE PRACTICA", guarda la factura y el resultado lo muestra en un swal
+( ) Generar reporte para auditoría interna: agrupado por prestador y dentro de cada prestador por codigo de practica
+( ) Generar reporte para el total por cada prestador
+( ) Si Alexis dice que los campos que estan para registrar practicas son los que son, hacer que se pueda abrir el modal de facturacion con las practicas que no tienen DNI de paciente ni obra social
 ( ) Formulario de edición de prácticas externas
-( ) Registro de facturación
+( ) Eliminar prácticas externas
 ( ) Separar el enrutamiento para que solo cargue asincrónicamente las funciones de una página en concreto,
 		no cargar las variables de AudFacTur para las demás páginas porque se redefine la variable, cada
-		página debe cargar sincrónicamente independiente. 
-( ) Filtrar por profesionales y obra social, auditados y pendientes
+		página debe cargar sincrónicamente independiente. (VER SI ES NECESARIO, al cambiar variables globales de const a var se pueden redefinir en el scope global).
+( ) Filtrar por profesionales y obra social, dni del paciente, etc.
 ( ) Generar liquidación de todos los auditados
