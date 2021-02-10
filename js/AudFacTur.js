@@ -310,29 +310,10 @@ $('#btnFacturar').click(function(){
     if('message' in data)
     {
       swal(data.message);
-    } else { 
+    } else if('facturas_actualizadas' in data){ 
       console.log(data);
-      let strEstado = ''
-      switch (data[0].estado) {
-        case 1:
-          strEstado = 'Factura sin cerrar';
-          break;
-        case 2:
-          strEstado = 'Factura cerrada';
-          break;
-        case 3:
-          strEstado = 'Pendiente de pago';
-          break;
-        case 4:
-          strEstado = 'Pagado';
-          break;
-        case 5:
-          strEstado = 'Liquidado';
-          break;
-        default:
-          break;
-      }
-      swal('Facturado','Se han facturado '+data[0].cantidad+' practicas correctamente con estado: '+strEstado, 'success');
+      swal('Facturado','Se han facturado las practicas correctamente', 'success');
+      
     }
   }); 
 

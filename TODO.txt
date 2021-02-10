@@ -17,8 +17,8 @@ Nombre y apellido, tipo (Medica general, ginecologo, etc), Matricula, Numero de 
 (X) Registro de facturación (práctica)
 (X) Cerrar sesion.
 (X) reemplazar botón de cambiar estado por "facturar" para las practicas en estado pendiente, el cual va a llamar al endpoint "CREAR FACTURA GENERADA DESDE PRACTICA", guarda la factura y el resultado lo muestra en un swal
-( ) Generar reporte para auditoría interna: agrupado por prestador y dentro de cada prestador por codigo de practica
-( ) Generar reporte para el total por cada prestador
+(X) Generar reporte para auditoría interna: agrupado por prestador y dentro de cada prestador por codigo de practica, se triggerea desde un boton en el detalle de la factura
+( ) Generar reporte para el total por cada prestador, esto es, un reporte para obra social en el que estén los totales de los médicos, sin prácticas. NOTA: debe tener un select2 para seleccionar la obra social a la que se le generará el reporte, se debe buscar en las facturas todas las que tengan esa obra social.
 ( ) Si Alexis dice que los campos que estan para registrar practicas son los que son, hacer que se pueda abrir el modal de facturacion con las practicas que no tienen DNI de paciente ni obra social
 ( ) Formulario de edición de prácticas externas
 ( ) Eliminar prácticas externas
